@@ -47,6 +47,13 @@ while IFS=';' read -r username groups; do
     username=$(echo $username | xargs) # trim whitespace
     groups=$(echo $groups | xargs)     # trim whitespace
 
+    # Check if username or groups are empty
+    if [ -z "$username" ] || [ -z "$groups" ]; then
+        echo -e "\e[33mSkipping invalid line (empty username or groups)\e[0m"
+        log_action "Skipped invalid line (empty username or groups)"
+        continue
+    fi
+
     if id "$username" &>/dev/null; then
         echo -e "\e[33mUser $username already exists. Skipping...\e[0m"
         log_action "User $username already exists."
@@ -57,7 +64,7 @@ while IFS=';' read -r username groups; do
     if [ "$DRY_RUN" = true ]; then
         echo -e "\e[34m(DRY-RUN) Would create user $username with personal group.\e[0m"
     else
-        if useradd -m -s /bin/bash -G $username $username; then
+        if useradd -m -U -s /bin/bash $username; then
             echo -e "\e[32mCreated user $username with personal group.\e[0m"
             log_action "Created user $username with personal group."
         else
