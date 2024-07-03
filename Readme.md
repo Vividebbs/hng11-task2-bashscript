@@ -1,6 +1,3 @@
-### README.md
-
-```markdown
 # User and Group Management Script
 
 ## Overview
@@ -50,16 +47,9 @@ chiamaka; dev,www-data,qa
 - **Logs**: Actions are logged to `/var/log/user_management.log`.
 - **Passwords**: Generated passwords are stored securely in `/var/secure/user_passwords.csv`.
 
-## License
+## Technical Article
 
-This project is licensed under the MIT License.
-```
-
-### Technical Article
-
----
-
-## Automating User and Group Management with a Bash Script
+### Automating User and Group Management with a Bash Script
 
 Managing users and groups on a Linux system can be a repetitive and error-prone task. To streamline this process, we’ve developed a bash script that automates user creation, group assignment, home directory setup, password generation, and action logging. This article explains the script step-by-step and links to the HNG Internship program for those looking to enhance their development skills.
 
@@ -246,10 +236,12 @@ The script stores the generated passwords in a secure file with restricted permi
 done < "$INPUT_FILE"
 ```
 
-### Final Message
+## Learn More
 
-The script prints a final message indicating whether the user creation process was simulated or actually completed.
+To learn more about enhancing your development skills and becoming a world-class DevOps Engineer, check out the following links from the HNG Internship program:
 
-```bash
-if [ "$DRY_RUN" = true ]; then
-    echo -e "\e[34
+- [HNG Internship](https://hng.tech/internship)
+- [Hire HNG Interns](https://hng.tech/hire)
+- [HNG Premium](https://hng.tech/premium)
+
+This script and article are part of the HNG Internship program, aimed at providing hands-on experience and skill development for aspiring techies.
